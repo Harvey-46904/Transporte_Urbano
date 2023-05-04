@@ -97,7 +97,7 @@ add_shortcode('propietario', "mostrar_propietario");
 
      echo "<ul>";
      foreach ($listas as $key => $value) {
-        echo "<li>{$value['Nombre']}</li>";
+        echo "<li>{$value['TIPO_CARROCERIA']}</li>";
       
      }
      echo "</ul>";

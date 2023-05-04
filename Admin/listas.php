@@ -180,7 +180,7 @@ $OBSERVACIONES=$_POST["OBSERVACIONES"];
             <label for="exampleFormControlTextarea1">Observaciones</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="OBSERVACIONES"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+          <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         </form>
       </div>
       <div class="modal-footer">
