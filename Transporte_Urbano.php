@@ -95,18 +95,23 @@ add_shortcode('propietario', "mostrar_propietario");
      if(empty($listas))$listas=array();
     
 
-     echo "<ul>";
+     echo '<table style="width:100%,border:1px solid black ">';
      foreach ($listas as $key => $value) {
-        echo "<li>{$value['TIPO_CARROCERIA']}</li>";
+        echo '<tr>';
+            echo '<td>'.$value['TIPO_CARROCERIA'].'</td>';
+            echo '<td>'.$value['TIPO_VEHICULO'].'</td>';
+        echo '</tr>';
+      
       
      }
-     echo "</ul>";
+    echo '</table>';
+
  }
 
 
 
  function ocultar_plugins_para_usuario_especifico() {
-    echo "hola";
+   
     global $wp_list_table;
     $user = wp_get_current_user();
 
