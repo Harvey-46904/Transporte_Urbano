@@ -99,7 +99,7 @@ add_shortcode('propietario', "mostrar_propietario");
      foreach ($listas as $key => $value) {
         echo '<tr>';
             echo '<td>'.$value['TIPO_CARROCERIA'].'</td>';
-            echo '<td>'.$value['TIPO_VEHICULO'].'</td>';
+            echo '<td class="bg-danger">'.$value['TIPO_VEHICULO'].'</td>';
         echo '</tr>';
       
       
