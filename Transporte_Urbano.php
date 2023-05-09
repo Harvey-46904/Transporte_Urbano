@@ -99,34 +99,256 @@ add_shortcode('propietario', "mostrar_propietario");
      echo '<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>';
      echo '<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>';
     
-     
+     echo '  <style>
+     .celda10 {
+         width: 10%;
+     }
+
+     .celda20 {
+         width: 20%;
+     }
+
+     .celda30 {
+         width: 30%;
+     }
+
+     .celda40 {
+         width: 40%;
+     }
+ </style>';
     
 
     
     
 
      echo '<div class="container">';
-
+       
         echo '<div class="row bg-danger my-4 py-4">';
-            echo '<div class="col-md-12">';
-                echo '<div class="row bg-success justify-content-between">';
-                    echo '<div class="col-md-3 bg-primary text-center"> Hola </div>';
-                    echo '<div class="col-md-3 bg-primary"> Hola </div>';
-                echo '</div>';
-            echo '</div>';
-
-        echo '</div>';
-    
-     /*
+           
+          
+     
      foreach ($listas as $key => $value) {
-        echo '<div class="row bg-danger my-4 py-4">';
-            echo '<div class="col-md-6">'.$value['TIPO_CARROCERIA'].'</div>';
+         echo '<div class="col-md-4 ">';
+                echo '<div class="card" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">'.$value["FECHA"].'</h6>
+                <p class="card-text">'.$value["DIRECCION_CARGUE"].'</p>
+                <a href="#" class="card-link"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                Detalles
+                </button> </a>
+                <a href="#" class="card-link">Another link</a>
+                </div>
+                </div>'; 
             
+            echo '</div>';
+     }
+      
+      
         echo '</div>';
-      
-      
-     */
      echo '</div>';
+
+
+     echo '  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+     <div class="modal-dialog modal-lg" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="exampleModalLongTitle">Vacante</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body">
+         <div class="container mt-5">
+         <table class=" table table-bordered border-dark table-hover">
+             <thead>
+                 <!--- <tr>
+                 <th scope="col">#</th>
+                 <th scope="col">First</th>
+                 <th scope="col">Last</th>
+                 <th scope="col">Handle</th>
+               </tr> -->
+             </thead>
+             <tbody>
+               <tr>
+                 
+                 <td class="celda20 table-success">TIPO DE VEHICULO</td>
+                 <td class="celda40"></td>
+                 
+               </tr>
+              
+             </tbody>
+           </table>
+     
+           <table class=" table table-bordered border-dark table-hover">
+            
+             <tbody>
+               <tr>
+                 
+                 <td class="celda20 table-success">TIPO DE CARROCERIA</td>
+                 <td class="celda40"></td>
+                 
+               </tr>
+              
+             </tbody>
+           </table>
+     
+             <table class=" table table-bordered border-dark table-hover">
+             
+                 <tbody>
+                     <tr>
+                         
+                         <td class="celda40 table-success">DIRECCION DE CARGUE / CONTACTO / No. TELEFONICO</td>
+                         <td class="celda20">Contacto:</td>
+                         <td class="celda20">Direccion:</td>
+                         <td class="celda20">Tel/Cel:</td>
+                         
+                     </tr>
+                 
+                 </tbody>
+                 
+             </table>
+     
+             <table class=" table table-bordered border-dark table-hover">
+             
+                 <tbody>
+                     <tr>
+                         
+                         <td class="celda30 table-success">COMPROMISO DE CARGUE</td>
+                         <td class="celda20">Fecha:</td>
+                         <td class="celda20">Hora:</td>
+                         
+                         
+                     </tr>
+                 
+                 </tbody>
+                 
+             </table>
+     
+             <table class=" table table-bordered border-dark table-hover">
+             
+                 <tbody>
+                     <tr>
+                         
+                         <td class="celda20 table-success">TIPO DE CARGA</td>
+                         <td class="celda20">General:</td>
+                         <td class="celda20">Granel:</td>
+                         <td class="celda20"></td>
+                         
+                         
+                     </tr>
+                 
+                 </tbody>
+                 
+             </table>
+     
+             
+             <table class=" table table-bordered border-dark table-hover">
+             
+                 <tbody>
+                     <tr>
+                         
+                         <td class="celda40 table-success">CARGUE Y  DESCARGUE POR CUENTA DEL CLIENTE Y/O TRANSPORTADORA</td>
+                         <td class="celda20">Cliente:</td>
+                         <td class="celda20">Transportadora:</td>
+                         
+                         
+                         
+                     </tr>
+                 
+                 </tbody>
+                 
+             </table>
+     
+             <table class=" table table-bordered border-dark table-hover">
+             
+                 <tbody>
+                     <tr>
+                         
+                         <td class="celda20 table-success">DIMENSIONES CARGA</td>
+                         <td class="celda20">Cant:</td>
+                         <td class="celda20">Peso:</td>
+                         <td class="celda20">Volumen:</td>
+                         
+                         
+                     </tr>
+                 
+                 </tbody>
+                 
+             </table>
+     
+             <table class=" table table-bordered border-dark table-hover">
+             
+                 <tbody>
+                     <tr>
+                         
+                         <td class="celda30 table-success">CONT.20 - CARGA SUELTA</td>
+                         <td class="celda20">Carga suelta:</td>
+                         <td class="celda20">CONT. 20:</td>
+                         <td class="celda20">CONT. 40:</td>
+                         
+                         
+                     </tr>
+                 
+                 </tbody>
+                 
+             </table>
+     
+             <table class=" table table-bordered border-dark table-hover">
+             
+                 <tbody>
+                     <tr>
+                         
+                         <td class="celda30 table-success">COMPROMISO DE ENTREGA EN DESTINO</td>
+                         <td class="celda20">Fecha:</td>
+                         <td class="celda20">Hora:</td>
+                        
+                         
+                     </tr>
+                 
+                 </tbody>
+                 
+             </table>
+     
+             <table class=" table table-bordered border-dark table-hover">
+             
+                 <tbody>
+                     <tr>
+                         
+                         <td class="celda10 table-success">FLETE</td>
+                         <td class="celda40"></td>
+                         
+                     </tr>
+                 
+                 </tbody>
+                 
+             </table>
+     
+             <table class=" table table-bordered border-dark table-hover">
+             
+                 <tbody>
+                     <tr>
+                         
+                         <td class="celda20 table-success">BBSERVACIONES A TENER EN CUENTA</td>
+                         <td class="celda40"></td>
+                         
+                     </tr>
+                 
+                 </tbody>
+                 
+             </table>
+     
+     
+     
+     </div>
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+           <button type="button" class="btn btn-primary">Save changes</button>
+         </div>
+       </div>
+     </div>
+   </div>';
 
  }
 
