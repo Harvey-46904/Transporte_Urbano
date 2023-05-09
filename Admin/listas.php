@@ -56,7 +56,8 @@ $OBSERVACIONES= isset($_POST["OBSERVACIONES"]);
             <th>Vehículo</th>
             <th>Carroceria</th>
             <th>Fecha</th>
-            <th>Acciones</th>
+            <th class="text-center">Ampliar</th>
+            <th class="text-center">Eliminar</th>
         </thead>
         <tbody id="the-list">
             <?php
@@ -72,7 +73,8 @@ $OBSERVACIONES= isset($_POST["OBSERVACIONES"]);
                 <td><?php echo $vehiculo; ?></td>
                 <td><?php echo $carroceria; ?></td>
                 <td><?php echo $fecha; ?></td>
-                <td><a class="page-title-action">Ampliar</a></td>
+                <td class="text-center"><button class="btn btn-primary">Ver mas</button></td>
+                <td class="text-center"><button class="btn btn-danger">Eliminar</button></td>
             </tr>
             <?php  } ?>
         </tbody>
@@ -121,35 +123,35 @@ $OBSERVACIONES= isset($_POST["OBSERVACIONES"]);
 
           <div class="form-group">
             <label for="exampleFormControlInput1">Módelo de Vehículo</label>
-            <input type="text" class="form-control"  placeholder="Módelo de Vehículo" name="MODELO_VEHICULO">
+            <input type="text" class="form-control"  placeholder="Módelo de Vehículo" name="MODELO_VEHICULO" required>
           </div>
           <div class="form-group">
             <label for="exampleFormControlInput1">Dirección de Cargue</label>
-            <input type="text" class="form-control"  placeholder="Dirección de cargue" name="DIRECCION_CARGUE">
+            <input type="text" class="form-control"  placeholder="Dirección de cargue" name="DIRECCION_CARGUE" required>
           </div>   
           <div class="form-group">
             <label for="exampleFormControlInput1">Contacto</label>
-            <input type="text" class="form-control"  placeholder="Contacto" name="CONTACTO">
+            <input type="text" class="form-control"  placeholder="Contacto" name="CONTACTO" required>
           </div>   
 
           <div class="form-group">
             <label for="exampleFormControlInput1">Teléfono</label>
-            <input type="text" class="form-control"  placeholder="Teléfono" name="TELEFONICO">
+            <input type="text" class="form-control"  placeholder="Teléfono" name="TELEFONICO" required>
           </div>   
 
           <div class="form-group">
             <label for="exampleFormControlInput1">Compromiso de Cargue</label>
-            <input type="text" class="form-control"  placeholder="Compromiso de Cargue" name="COMPROMISO_CARGUE">
+            <input type="text" class="form-control"  placeholder="Compromiso de Cargue" name="COMPROMISO_CARGUE" required>
           </div>   
 
           <div class="form-group">
             <label for="exampleFormControlInput1">Tipo de Carga</label>
-            <input type="text" class="form-control"  placeholder="Tipo de Carga" name="TIPO_CARGA">
+            <input type="text" class="form-control"  placeholder="Tipo de Carga" name="TIPO_CARGA" required>
           </div>   
 
           <div class="form-group">
             <label for="exampleFormControlInput1">Cargue o Descargue</label>
-            <select class="form-control" name="CARGUE_DESCARGUE">
+            <select class="form-control" name="CARGUE_DESCARGUE" required>
                 <option>Cargue</option>
                 <option>Descargue</option>
             </select>
@@ -157,22 +159,22 @@ $OBSERVACIONES= isset($_POST["OBSERVACIONES"]);
 
           <div class="form-group">
             <label for="exampleFormControlInput1">Dimenciones de Carga</label>
-            <input type="text" class="form-control"  placeholder="Dimenciones de Carga" name="DIMENSIONES_CARGA">
+            <input type="text" class="form-control"  placeholder="Dimenciones de Carga" name="DIMENSIONES_CARGA" required>
           </div>   
 
           <div class="form-group">
             <label for="exampleFormControlInput1">Peso</label>
-            <input type="text" class="form-control"  placeholder="Peso" name="PESO">
+            <input type="text" class="form-control"  placeholder="Peso" name="PESO" required>
           </div>   
 
           <div class="form-group">
             <label for="exampleFormControlInput1">Fecha</label>
-            <input type="text" class="form-control"  placeholder="Fecha" name="FECHA">
+            <input type="text" class="form-control"  placeholder="Fecha" name="FECHA" required>
           </div>   
 
           <div class="form-group">
             <label for="exampleFormControlInput1">Flete</label>
-            <input type="text" class="form-control"  placeholder="Flete" name="FLETE">
+            <input type="text" class="form-control"  placeholder="Flete" name="FLETE" required>
           </div>   
 
 

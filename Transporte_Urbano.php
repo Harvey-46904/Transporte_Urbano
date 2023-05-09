@@ -93,18 +93,40 @@ add_shortcode('propietario', "mostrar_propietario");
     $sql="SELECT * FROM `wp_vacante_transporte_urbano`";
     $listas= $wpdb->get_results($sql,ARRAY_A);
      if(empty($listas))$listas=array();
+     
+     echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">';
+     echo '<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>';
+     echo '<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>';
+     echo '<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>';
+    
+     
     
 
-     echo '<table style="width:100%,border:1px solid black ">';
+    
+    
+
+     echo '<div class="container">';
+
+        echo '<div class="row bg-danger my-4 py-4">';
+            echo '<div class="col-md-12">';
+                echo '<div class="row bg-success justify-content-between">';
+                    echo '<div class="col-md-3 bg-primary text-center"> Hola </div>';
+                    echo '<div class="col-md-3 bg-primary"> Hola </div>';
+                echo '</div>';
+            echo '</div>';
+
+        echo '</div>';
+    
+     /*
      foreach ($listas as $key => $value) {
-        echo '<tr>';
-            echo '<td>'.$value['TIPO_CARROCERIA'].'</td>';
-            echo '<td class="bg-danger">'.$value['TIPO_VEHICULO'].'</td>';
-        echo '</tr>';
+        echo '<div class="row bg-danger my-4 py-4">';
+            echo '<div class="col-md-6">'.$value['TIPO_CARROCERIA'].'</div>';
+            
+        echo '</div>';
       
       
-     }
-    echo '</table>';
+     */
+     echo '</div>';
 
  }
 
