@@ -236,7 +236,7 @@ add_shortcode('propietario', "mostrar_propietario");
              <tbody>
                <tr>
                  
-                 <td class="celda20 table-success">TIPO DE VEHICULO</td>
+                 <td class="celda20 table-success bg-primary">TIPO DE VEHICULO</td>
                  <td class="celda40" id="TIPO_VEHICULO">H</td>
                  
                </tr>
