@@ -116,28 +116,92 @@ add_shortcode('propietario', "mostrar_propietario");
          width: 40%;
      }
  </style>';
-    
+   echo '
+   <script>
+     function saludar(TIPO_VEHICULO,
+     TIPO_CARROCERIA,
+     MODELO_VEHICULO,
+     DIRECCION_CARGUE,
+     CONTACTO,
+     TELEFONICO,
+     COMPROMISO_CARGUE,
+     TIPO_CARGA,
+     CARGUE_DESCARGUE,
+     DIMENSIONES_CARGA,
+     PESO,
+     FECHA,
+     FLETE,
+     OBSERVACIONES){
+
+      $("#TIPO_VEHICULO").text(TIPO_VEHICULO)
+      $("#TIPO_CARROCERIA").text(TIPO_CARROCERIA)
+      $("#MODELO_VEHICULO").text(MODELO_VEHICULO)
+      $("#DIRECCION_CARGUE").text("Direccion: "+DIRECCION_CARGUE)
+      $("#CONTACTO").text("Contacto: "+CONTACTO) 
+      $("#TELEFONICO").text("Tel/Cel: "+TELEFONICO)
+      $("#COMPROMISO_CARGUE").text(COMPROMISO_CARGUE)
+      $("#TIPO_CARGA").text(TIPO_CARGA)
+      $("#CARGUE_DESCARGUE").text(CARGUE_DESCARGUE)
+      $("#DIMENSIONES_CARGA").text(DIMENSIONES_CARGA)
+      $("#PESO").text(PESO)
+      $("#DIMENSIONES_CARGA").text(DIMENSIONES_CARGA)
+      $("#FECHA").text(FECHA)
+      $("#FLETE").text(FLETE)
+      
+      $("#OBSERVACIONES").text(OBSERVACIONES)
+     }
+    </script>
+   ' ;
 
     
     
 
      echo '<div class="container">';
        
-        echo '<div class="row bg-danger my-4 py-4">';
+        echo '<div class="row  my-4 py-4">';
            
           
      
      foreach ($listas as $key => $value) {
+        $TIPO_VEHICULO= $value["TIPO_VEHICULO"];
+        $TIPO_CARROCERIA= $value["TIPO_CARROCERIA"];
+        $MODELO_VEHICULO= $value["MODELO_VEHICULO"];
+        $DIRECCION_CARGUE= $value["DIRECCION_CARGUE"];
+        $CONTACTO= $value["CONTACTO"];
+        $TELEFONICO= $value["TELEFONICO"];
+        $COMPROMISO_CARGUE= $value["COMPROMISO_CARGUE"];
+        $TIPO_CARGA= $value["TIPO_CARGA"];
+        $CARGUE_DESCARGUE= $value["CARGUE_DESCARGUE"];
+        $DIMENSIONES_CARGA= $value["DIMENSIONES_CARGA"];
+        $PESO= $value["PESO"];
+        $FECHA= $value["FECHA"];
+        $FLETE= $value["FLETE"];
+        $OBSERVACIONES= $value["OBSERVACIONES"];
          echo '<div class="col-md-4 ">';
                 echo '<div class="card" style="width: 18rem;">
                 <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Nueva Vacante</h5>
                 <h6 class="card-subtitle mb-2 text-muted">'.$value["FECHA"].'</h6>
                 <p class="card-text">'.$value["DIRECCION_CARGUE"].'</p>
-                <a href="#" class="card-link"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                <a href="#" class="card-link"><button type="button" onclick="saludar(
+                `'.$TIPO_VEHICULO.'`,
+                `'.$TIPO_CARROCERIA.'`,
+                `'.$MODELO_VEHICULO.'`,
+                `'.$DIRECCION_CARGUE.'`,
+                `'.$CONTACTO.'`,
+                `'.$TELEFONICO.'`,
+                `'.$COMPROMISO_CARGUE.'`,
+                `'.$TIPO_CARGA.'`,
+                `'.$CARGUE_DESCARGUE.'`,
+                `'.$DIMENSIONES_CARGA.'`,
+                `'.$PESO.'`,
+                `'.$FECHA.'`,
+                `'.$FLETE.'`,
+                `'.$OBSERVACIONES.'`,
+                )" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
                 Detalles
                 </button> </a>
-                <a href="#" class="card-link">Another link</a>
+               
                 </div>
                 </div>'; 
             
@@ -173,7 +237,7 @@ add_shortcode('propietario', "mostrar_propietario");
                <tr>
                  
                  <td class="celda20 table-success">TIPO DE VEHICULO</td>
-                 <td class="celda40"></td>
+                 <td class="celda40" id="TIPO_VEHICULO">H</td>
                  
                </tr>
               
@@ -186,7 +250,7 @@ add_shortcode('propietario', "mostrar_propietario");
                <tr>
                  
                  <td class="celda20 table-success">TIPO DE CARROCERIA</td>
-                 <td class="celda40"></td>
+                 <td class="celda40" id="TIPO_CARROCERIA">H</td>
                  
                </tr>
               
@@ -199,9 +263,9 @@ add_shortcode('propietario', "mostrar_propietario");
                      <tr>
                          
                          <td class="celda40 table-success">DIRECCION DE CARGUE / CONTACTO / No. TELEFONICO</td>
-                         <td class="celda20">Contacto:</td>
-                         <td class="celda20">Direccion:</td>
-                         <td class="celda20">Tel/Cel:</td>
+                         <td class="celda20" id="CONTACTO">Contacto: H</td>
+                         <td class="celda20" id="DIRECCION_CARGUE">Direccion: H</td>
+                         <td class="celda20" id="TELEFONICO">Tel/Cel: H</td>
                          
                      </tr>
                  
@@ -215,8 +279,8 @@ add_shortcode('propietario', "mostrar_propietario");
                      <tr>
                          
                          <td class="celda30 table-success">COMPROMISO DE CARGUE</td>
-                         <td class="celda20">Fecha:</td>
-                         <td class="celda20">Hora:</td>
+                         <td class="celda20" id="">Fecha: H</td>
+        
                          
                          
                      </tr>
@@ -231,9 +295,9 @@ add_shortcode('propietario', "mostrar_propietario");
                      <tr>
                          
                          <td class="celda20 table-success">TIPO DE CARGA</td>
-                         <td class="celda20">General:</td>
-                         <td class="celda20">Granel:</td>
-                         <td class="celda20"></td>
+                         <td class="celda20" id="">General: H</td>
+                         <td class="celda20" id="">Granel: H</td>
+                         <td class="celda20" id="">H</td>
                          
                          
                      </tr>
@@ -249,8 +313,8 @@ add_shortcode('propietario', "mostrar_propietario");
                      <tr>
                          
                          <td class="celda40 table-success">CARGUE Y  DESCARGUE POR CUENTA DEL CLIENTE Y/O TRANSPORTADORA</td>
-                         <td class="celda20">Cliente:</td>
-                         <td class="celda20">Transportadora:</td>
+                         <td class="celda20" id="TIPO_VEHICULO">Cliente: H</td>
+                         <td class="celda20" id="TIPO_VEHICULO">Transportadora: H</td>
                          
                          
                          
@@ -266,9 +330,9 @@ add_shortcode('propietario', "mostrar_propietario");
                      <tr>
                          
                          <td class="celda20 table-success">DIMENSIONES CARGA</td>
-                         <td class="celda20">Cant:</td>
-                         <td class="celda20">Peso:</td>
-                         <td class="celda20">Volumen:</td>
+                         <td class="celda20" id="TIPO_VEHICULO">Cant: H</td>
+                         <td class="celda20" id="TIPO_VEHICULO">Peso: H</td>
+                         <td class="celda20" id="TIPO_VEHICULO">Volumen: H</td>
                          
                          
                      </tr>
@@ -283,9 +347,9 @@ add_shortcode('propietario', "mostrar_propietario");
                      <tr>
                          
                          <td class="celda30 table-success">CONT.20 - CARGA SUELTA</td>
-                         <td class="celda20">Carga suelta:</td>
-                         <td class="celda20">CONT. 20:</td>
-                         <td class="celda20">CONT. 40:</td>
+                         <td class="celda20" id="TIPO_VEHICULO">Carga suelta: H</td>
+                         <td class="celda20" id="TIPO_VEHICULO">CONT. 20: H</td>
+                         <td class="celda20" id="TIPO_VEHICULO">CONT. 40: H</td>
                          
                          
                      </tr>
@@ -300,8 +364,8 @@ add_shortcode('propietario', "mostrar_propietario");
                      <tr>
                          
                          <td class="celda30 table-success">COMPROMISO DE ENTREGA EN DESTINO</td>
-                         <td class="celda20">Fecha:</td>
-                         <td class="celda20">Hora:</td>
+                         <td class="celda20" id="FECHA">Fecha: H</td>
+                      
                         
                          
                      </tr>
@@ -316,7 +380,7 @@ add_shortcode('propietario', "mostrar_propietario");
                      <tr>
                          
                          <td class="celda10 table-success">FLETE</td>
-                         <td class="celda40"></td>
+                         <td class="celda40" id="FLETE">H</td>
                          
                      </tr>
                  
@@ -329,8 +393,8 @@ add_shortcode('propietario', "mostrar_propietario");
                  <tbody>
                      <tr>
                          
-                         <td class="celda20 table-success">BBSERVACIONES A TENER EN CUENTA</td>
-                         <td class="celda40"></td>
+                         <td class="celda20 table-success">OBSERVACIONES A TENER EN CUENTA</td>
+                         <td class="celda40" id="OBSERVACIONES">H</td>
                          
                      </tr>
                  
