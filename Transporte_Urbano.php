@@ -205,7 +205,7 @@ add_shortcode('propietario', "mostrar_propietario");
                 echo '<div class="card" style="width: 18rem;">
                 <div class="card-body">
                 <h5 class="card-title">Nueva Vacante</h5>
-                <h6 class="card-subtitle mb-2 text-muted">'.$value["FECHA"].'</h6>
+                <h6 class="card-subtitle mb-2 text-muted">'.$value["FECHA_COMPROMISO"].'</h6>
                 <p class="card-text">'.$value["DIRECCION_CARGUE"].'</p>
                 <a href="#" class="card-link"><button type="button" onclick="saludar(
                     `'.$TIPO_VEHICULO.'`,

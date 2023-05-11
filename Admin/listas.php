@@ -78,7 +78,7 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
                 $id=$value["Vacante_id"];
                 $vehiculo=$value["TIPO_VEHICULO"];
                 $carroceria=$value["TIPO_CARROCERIA"];
-                $fecha=$value["FECHA"];
+                $fecha=$value["FECHA_COMPROMISO"];
                
             ?>
             <tr>
