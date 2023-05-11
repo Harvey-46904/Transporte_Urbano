@@ -3,41 +3,54 @@
 
 $tabla ="wp_vacante_transporte_urbano";
 
-$TIPO_VEHICULO= isset($_POST["TIPO_VEHICULO"]);
-$TIPO_CARROCERIA= isset($_POST["TIPO_CARROCERIA"]);
-$MODELO_VEHICULO= isset($_POST["MODELO_VEHICULO"]);
-$DIRECCION_CARGUE= isset($_POST["DIRECCION_CARGUE"]);
-$CONTACTO= isset($_POST["CONTACTO"]);
-$TELEFONICO= isset($_POST["TELEFONICO"]);
-$COMPROMISO_CARGUE= isset($_POST["COMPROMISO_CARGUE"]);
-$TIPO_CARGA= isset($_POST["TIPO_CARGA"]);
-$CARGUE_DESCARGUE= isset($_POST["CARGUE_DESCARGUE"]);
-$DIMENSIONES_CARGA= isset($_POST["DIMENSIONES_CARGA"]);
-$PESO= isset($_POST["PESO"]);
-$FECHA= isset($_POST["FECHA"]);
-$FLETE= isset($_POST["FLETE"]);
-$OBSERVACIONES= isset($_POST["OBSERVACIONES"]);
- if($TIPO_VEHICULO!= ""){
 
 
+if($_SERVER["REQUEST_METHOD"] =="POST"){
 
-  
+  $TIPO_VEHICULO= $_POST["TIPO_VEHICULO"];
+  $TIPO_CARROCERIA= $_POST["TIPO_CARROCERIA"];
+  $MODELO_VEHICULO= $_POST["MODELO_VEHICULO"];
+  $DIRECCION_CARGUE= $_POST["DIRECCION_CARGUE"];
+  $CONTACTO= $_POST["CONTACTO"];
+  $TELEFONICO= $_POST["TELEFONICO"];
+  $COMPROMISO_CARGUE= $_POST["COMPROMISO_CARGUE"];
+  $TIPO_CARGA_GENERAL= $_POST["TIPO_CARGA_GENERAL"];
+  $TIPO_CARGA_GRANEL= $_POST["TIPO_CARGA_GRANEL"];
+  $CARGUE_DESCARGUE_CLIENTE= $_POST["CARGUE_DESCARGUE_CLIENTE"];
+  $CARGUE_DESCARGUE_TRANSPORTADORA= $_POST["CARGUE_DESCARGUE_TRANSPORTADORA"];
+  $CANTIDAD= $_POST["CANTIDAD"];
+  $PESO= $_POST["PESO"];
+  $VOLUMEN= $_POST["VOLUMEN"];
+  $CARGA_SUELTA= $_POST["CARGA_SUELTA"];
+  $CONT20= $_POST["CONT20"];
+  $CONT40= $_POST["CONT40"];
+  $FECHA_COMPROMISO= $_POST["FECHA_COMPROMISO"];
+  $FLETE= $_POST["FLETE"];
+  $OBSERVACIONES= $_POST["OBSERVACIONES"];
   $datos=[
-    'TIPO_VEHICULO' => $TIPO_VEHICULO,
+    'TIPO_VEHICULO' => $TIPO_VEHICULO ,
     'TIPO_CARROCERIA' => $TIPO_CARROCERIA,
     'MODELO_VEHICULO' => $MODELO_VEHICULO,
     'DIRECCION_CARGUE' => $DIRECCION_CARGUE,
     'CONTACTO' => $CONTACTO,
     'TELEFONICO' => $TELEFONICO,
     'COMPROMISO_CARGUE' => $COMPROMISO_CARGUE,
-    'TIPO_CARGA' => $TIPO_CARGA,
-    'CARGUE_DESCARGUE' => $CARGUE_DESCARGUE,
-    'DIMENSIONES_CARGA' => $DIMENSIONES_CARGA,
-    'PESO' => $PESO,
-    'FECHA' => $FECHA,
+    'TIPO_CARGA_GENERAL' => $TIPO_CARGA_GENERAL,
+    'TIPO_CARGA_GRANEL' => $TIPO_CARGA_GRANEL,
+    'CARGUE_DESCARGUE_CLIENTE' => $CARGUE_DESCARGUE_CLIENTE,
+    'CARGUE_DESCARGUE_TRANSPORTADORA' => $CARGUE_DESCARGUE_TRANSPORTADORA,
+    'CANTIDAD' => $CANTIDAD,
+    'PESO' => $PESO ,
+    'VOLUMEN' => $VOLUMEN,
+    'CARGA_SUELTA' => $CARGA_SUELTA,
+    'CONT20' => $CONT20,
+    'CONT40' => $CONT40,
+    'FECHA_COMPROMISO' => $FECHA_COMPROMISO ,
     'FLETE' => $FLETE,
     'OBSERVACIONES' => $OBSERVACIONES
   ];
+
+  
   $wpdb->insert($tabla,$datos);
     echo "Datos Guardados Correctamente";
  }
@@ -56,7 +69,7 @@ $OBSERVACIONES= isset($_POST["OBSERVACIONES"]);
             <th>Vehículo</th>
             <th>Carroceria</th>
             <th>Fecha</th>
-            <th class="text-center">Ampliar</th>
+           
             <th class="text-center">Eliminar</th>
         </thead>
         <tbody id="the-list">
@@ -73,7 +86,7 @@ $OBSERVACIONES= isset($_POST["OBSERVACIONES"]);
                 <td><?php echo $vehiculo; ?></td>
                 <td><?php echo $carroceria; ?></td>
                 <td><?php echo $fecha; ?></td>
-                <td class="text-center"><button class="btn btn-primary">Ver mas</button></td>
+               
                 <td class="text-center"><button class="btn btn-danger">Eliminar</button></td>
             </tr>
             <?php  } ?>
@@ -91,7 +104,7 @@ $OBSERVACIONES= isset($_POST["OBSERVACIONES"]);
         </button>
       </div>
       <div class="modal-body">
-      <form method="POST">
+      <form method="POST" >
           <div class="form-group">
             <label for="exampleFormControlSelect1">Tipo de Vehículo</label>
             <select class="form-control" id="exampleFormControlSelect1" name="TIPO_VEHICULO">
@@ -123,58 +136,82 @@ $OBSERVACIONES= isset($_POST["OBSERVACIONES"]);
 
           <div class="form-group">
             <label for="exampleFormControlInput1">Módelo de Vehículo</label>
-            <input type="text" class="form-control"  placeholder="Módelo de Vehículo" name="MODELO_VEHICULO" required>
+            <input type="text" class="form-control"  placeholder="Módelo de Vehículo" name="MODELO_VEHICULO" >
           </div>
           <div class="form-group">
             <label for="exampleFormControlInput1">Dirección de Cargue</label>
-            <input type="text" class="form-control"  placeholder="Dirección de cargue" name="DIRECCION_CARGUE" required>
+            <input type="text" class="form-control"  placeholder="Dirección de cargue" name="DIRECCION_CARGUE" >
           </div>   
           <div class="form-group">
             <label for="exampleFormControlInput1">Contacto</label>
-            <input type="text" class="form-control"  placeholder="Contacto" name="CONTACTO" required>
+            <input type="text" class="form-control"  placeholder="Contacto" name="CONTACTO" >
           </div>   
 
           <div class="form-group">
             <label for="exampleFormControlInput1">Teléfono</label>
-            <input type="text" class="form-control"  placeholder="Teléfono" name="TELEFONICO" required>
+            <input type="text" class="form-control"  placeholder="Teléfono" name="TELEFONICO" >
           </div>   
 
           <div class="form-group">
             <label for="exampleFormControlInput1">Compromiso de Cargue</label>
-            <input type="text" class="form-control"  placeholder="Compromiso de Cargue" name="COMPROMISO_CARGUE" required>
+            <input type="datetime-local" class="form-control"  placeholder="Compromiso de Cargue" name="COMPROMISO_CARGUE" >
           </div>   
 
           <div class="form-group">
-            <label for="exampleFormControlInput1">Tipo de Carga</label>
-            <input type="text" class="form-control"  placeholder="Tipo de Carga" name="TIPO_CARGA" required>
+            <label for="exampleFormControlInput1">Tipo de Carga General</label>
+            <input type="text" class="form-control"  placeholder="Tipo de Carga General" name="TIPO_CARGA_GENERAL" >
           </div>   
 
           <div class="form-group">
-            <label for="exampleFormControlInput1">Cargue o Descargue</label>
-            <select class="form-control" name="CARGUE_DESCARGUE" required>
-                <option>Cargue</option>
-                <option>Descargue</option>
-            </select>
+            <label for="exampleFormControlInput1">Tipo de Carga Granel</label>
+            <input type="text" class="form-control"  placeholder="Tipo de Carga Granel" name="TIPO_CARGA_GRANEL" >
           </div>   
 
           <div class="form-group">
-            <label for="exampleFormControlInput1">Dimenciones de Carga</label>
-            <input type="text" class="form-control"  placeholder="Dimenciones de Carga" name="DIMENSIONES_CARGA" required>
+            <label for="exampleFormControlInput1">Carge/Descarge Cliente</label>
+            <input type="text" class="form-control"  placeholder="Carge/Descarge Cliente" name="CARGUE_DESCARGUE_CLIENTE" >
+          </div>  
+
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Carge/Descarge Transportadora</label>
+            <input type="text" class="form-control"  placeholder="Carge/Descarge Transportadora" name="CARGUE_DESCARGUE_TRANSPORTADORA" >
+          </div>  
+
+
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Cantidad</label>
+            <input type="text" class="form-control"  placeholder="Cantidad" name="CANTIDAD" >
           </div>   
 
           <div class="form-group">
             <label for="exampleFormControlInput1">Peso</label>
-            <input type="text" class="form-control"  placeholder="Peso" name="PESO" required>
+            <input type="text" class="form-control"  placeholder="Peso" name="PESO" >
           </div>   
 
           <div class="form-group">
-            <label for="exampleFormControlInput1">Fecha</label>
-            <input type="text" class="form-control"  placeholder="Fecha" name="FECHA" required>
+            <label for="exampleFormControlInput1">Volumen</label>
+            <input type="text" class="form-control"  placeholder="Volumen" name="VOLUMEN" >
+          </div>    
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Carga Suelta</label>
+            <input type="text" class="form-control"  placeholder="Carga Suelta" name="CARGA_SUELTA" >
+          </div>   
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Cont 20</label>
+            <input type="text" class="form-control"  placeholder="Cont 20" name="CONT20" >
+          </div>   
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Cont 40</label>
+            <input type="text" class="form-control"  placeholder="Cont 40" name="CONT40" >
+          </div>   
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Fecha de Compromiso</label>
+            <input type="datetime-local" class="form-control"  placeholder="Fecha de compromiso" name="FECHA_COMPROMISO" >
           </div>   
 
           <div class="form-group">
             <label for="exampleFormControlInput1">Flete</label>
-            <input type="text" class="form-control"  placeholder="Flete" name="FLETE" required>
+            <input type="text" class="form-control"  placeholder="Flete" name="FLETE" >
           </div>   
 
 

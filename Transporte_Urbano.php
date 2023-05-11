@@ -17,11 +17,17 @@ function Activar(){
         CONTACTO VARCHAR(45) NULL,
         TELEFONICO VARCHAR(45) NULL,
         COMPROMISO_CARGUE VARCHAR(45) NULL,
-        TIPO_CARGA VARCHAR(45) NULL,
-        CARGUE_DESCARGUE VARCHAR(45) NULL,
-        DIMENSIONES_CARGA VARCHAR(45) NULL,
+        TIPO_CARGA_GENERAL VARCHAR(45) NULL,
+        TIPO_CARGA_GRANEL VARCHAR(45) NULL,
+        CARGUE_DESCARGUE_CLIENTE VARCHAR(45) NULL,
+        CARGUE_DESCARGUE_TRANSPORTADORA VARCHAR(45) NULL,
+        CANTIDAD VARCHAR(45) NULL,
         PESO VARCHAR(45) NULL,
-        FECHA VARCHAR(45) NULL,
+        VOLUMEN VARCHAR(45) NULL,
+        CARGA_SUELTA VARCHAR(45) NULL,
+        CONT20 VARCHAR(45) NULL,
+        CONT40 VARCHAR(45) NULL,
+        FECHA_COMPROMISO VARCHAR(45) NULL,
         FLETE VARCHAR(45) NULL,
         OBSERVACIONES TEXT NULL,
         PRIMARY KEY(Vacante_id)
@@ -118,37 +124,48 @@ add_shortcode('propietario', "mostrar_propietario");
  </style>';
    echo '
    <script>
-     function saludar(TIPO_VEHICULO,
-     TIPO_CARROCERIA,
-     MODELO_VEHICULO,
-     DIRECCION_CARGUE,
-     CONTACTO,
-     TELEFONICO,
-     COMPROMISO_CARGUE,
-     TIPO_CARGA,
-     CARGUE_DESCARGUE,
-     DIMENSIONES_CARGA,
-     PESO,
-     FECHA,
-     FLETE,
-     OBSERVACIONES){
+     function saludar(
+        TIPO_VEHICULO,
+        TIPO_CARROCERIA,
+        MODELO_VEHICULO,
+        DIRECCION_CARGUE,
+        CONTACTO,
+        TELEFONICO,
+        COMPROMISO_CARGUE,
+        TIPO_CARGA_GENERAL,
+        TIPO_CARGA_GRANEL,
+        CARGUE_DESCARGUE_CLIENTE,
+        CARGUE_DESCARGUE_TRANSPORTADORA,
+        CANTIDAD,
+        PESO,
+        VOLUMEN,
+        CARGA_SUELTA,
+        CONT20,
+        CONT40,
+        FECHA_COMPROMISO,
+        FLETE,
+        OBSERVACIONES){
 
-      $("#TIPO_VEHICULO").text(TIPO_VEHICULO)
-      $("#TIPO_CARROCERIA").text(TIPO_CARROCERIA)
-      $("#MODELO_VEHICULO").text(MODELO_VEHICULO)
-      $("#DIRECCION_CARGUE").text("Direccion: "+DIRECCION_CARGUE)
-      $("#CONTACTO").text("Contacto: "+CONTACTO) 
-      $("#TELEFONICO").text("Tel/Cel: "+TELEFONICO)
-      $("#COMPROMISO_CARGUE").text(COMPROMISO_CARGUE)
-      $("#TIPO_CARGA").text(TIPO_CARGA)
-      $("#CARGUE_DESCARGUE").text(CARGUE_DESCARGUE)
-      $("#DIMENSIONES_CARGA").text(DIMENSIONES_CARGA)
-      $("#PESO").text(PESO)
-      $("#DIMENSIONES_CARGA").text(DIMENSIONES_CARGA)
-      $("#FECHA").text(FECHA)
-      $("#FLETE").text(FLETE)
-      
-      $("#OBSERVACIONES").text(OBSERVACIONES)
+            $("#TIPO_VEHICULO").text( TIPO_VEHICULO);
+            $("#TIPO_CARROCERIA").text(TIPO_CARROCERIA);
+            $("#MODELO_VEHICULO").text(MODELO_VEHICULO);
+            $("#DIRECCION_CARGUE").text(DIRECCION_CARGUE);
+            $("#CONTACTO").text(CONTACTO);
+            $("#TELEFONICO").text(TELEFONICO);
+            $("#COMPROMISO_CARGUE").text(COMPROMISO_CARGUE);
+            $("#TIPO_CARGA_GENERAL").text(TIPO_CARGA_GENERAL);
+            $("#TIPO_CARGA_GRANEL").text(TIPO_CARGA_GRANEL);
+            $("#CARGUE_DESCARGUE_CLIENTE").text(CARGUE_DESCARGUE_CLIENTE);
+            $("#CARGUE_DESCARGUE_TRANSPORTADORA").text(CARGUE_DESCARGUE_TRANSPORTADORA);
+            $("#CANTIDAD").text(CANTIDAD);
+            $("#PESO").text(PESO);
+            $("#VOLUMEN").text(VOLUMEN);
+            $("#CARGA_SUELTA").text(CARGA_SUELTA);
+            $("#CONT20").text(CONT20);
+            $("#CONT40").text(CONT40);
+            $("#FECHA_COMPROMISO").text(FECHA_COMPROMISO);
+            $("#FLETE").text(FLETE);
+            $("#OBSERVACIONES").text(OBSERVACIONES);
      }
     </script>
    ' ;
@@ -164,19 +181,26 @@ add_shortcode('propietario', "mostrar_propietario");
      
      foreach ($listas as $key => $value) {
         $TIPO_VEHICULO= $value["TIPO_VEHICULO"];
-        $TIPO_CARROCERIA= $value["TIPO_CARROCERIA"];
-        $MODELO_VEHICULO= $value["MODELO_VEHICULO"];
-        $DIRECCION_CARGUE= $value["DIRECCION_CARGUE"];
-        $CONTACTO= $value["CONTACTO"];
-        $TELEFONICO= $value["TELEFONICO"];
-        $COMPROMISO_CARGUE= $value["COMPROMISO_CARGUE"];
-        $TIPO_CARGA= $value["TIPO_CARGA"];
-        $CARGUE_DESCARGUE= $value["CARGUE_DESCARGUE"];
-        $DIMENSIONES_CARGA= $value["DIMENSIONES_CARGA"];
-        $PESO= $value["PESO"];
-        $FECHA= $value["FECHA"];
-        $FLETE= $value["FLETE"];
-        $OBSERVACIONES= $value["OBSERVACIONES"];
+        $TIPO_VEHICULO=$value["TIPO_VEHICULO"];
+        $TIPO_CARROCERIA=$value["TIPO_CARROCERIA"];
+        $MODELO_VEHICULO=$value["MODELO_VEHICULO"];
+        $DIRECCION_CARGUE=$value["DIRECCION_CARGUE"];
+        $CONTACTO=$value["CONTACTO"];
+        $TELEFONICO=$value["TELEFONICO"];
+        $COMPROMISO_CARGUE=$value["COMPROMISO_CARGUE"];
+        $TIPO_CARGA_GENERAL=$value["TIPO_CARGA_GENERAL"];
+        $TIPO_CARGA_GRANEL=$value["TIPO_CARGA_GRANEL"];
+        $CARGUE_DESCARGUE_CLIENTE=$value["CARGUE_DESCARGUE_CLIENTE"];
+        $CARGUE_DESCARGUE_TRANSPORTADORA=$value["CARGUE_DESCARGUE_TRANSPORTADORA"];
+        $CANTIDAD=$value["CANTIDAD"];
+        $PESO=$value["PESO"];
+        $VOLUMEN=$value["VOLUMEN"];
+        $CARGA_SUELTA=$value["CARGA_SUELTA"];
+        $CONT20=$value["CONT20"];
+        $CONT40=$value["CONT40"];
+        $FECHA_COMPROMISO=$value["FECHA_COMPROMISO"];
+        $FLETE=$value["FLETE"];
+        $OBSERVACIONES=$value["OBSERVACIONES"];
          echo '<div class="col-md-4 ">';
                 echo '<div class="card" style="width: 18rem;">
                 <div class="card-body">
@@ -184,20 +208,26 @@ add_shortcode('propietario', "mostrar_propietario");
                 <h6 class="card-subtitle mb-2 text-muted">'.$value["FECHA"].'</h6>
                 <p class="card-text">'.$value["DIRECCION_CARGUE"].'</p>
                 <a href="#" class="card-link"><button type="button" onclick="saludar(
-                `'.$TIPO_VEHICULO.'`,
-                `'.$TIPO_CARROCERIA.'`,
-                `'.$MODELO_VEHICULO.'`,
-                `'.$DIRECCION_CARGUE.'`,
-                `'.$CONTACTO.'`,
-                `'.$TELEFONICO.'`,
-                `'.$COMPROMISO_CARGUE.'`,
-                `'.$TIPO_CARGA.'`,
-                `'.$CARGUE_DESCARGUE.'`,
-                `'.$DIMENSIONES_CARGA.'`,
-                `'.$PESO.'`,
-                `'.$FECHA.'`,
-                `'.$FLETE.'`,
-                `'.$OBSERVACIONES.'`,
+                    `'.$TIPO_VEHICULO.'`,
+                    `'.$TIPO_CARROCERIA.'`,
+                    `'.$MODELO_VEHICULO.'`,
+                    `'.$DIRECCION_CARGUE.'`,
+                    `'.$CONTACTO.'`,
+                    `'.$TELEFONICO.'`,
+                    `'.$COMPROMISO_CARGUE.'`,
+                    `'.$TIPO_CARGA_GENERAL.'`,
+                    `'.$TIPO_CARGA_GRANEL.'`,
+                    `'.$CARGUE_DESCARGUE_CLIENTE.'`,
+                    `'.$CARGUE_DESCARGUE_TRANSPORTADORA.'`,
+                    `'.$CANTIDAD.'`,
+                    `'.$PESO.'`,
+                    `'.$VOLUMEN.'`,
+                    `'.$CARGA_SUELTA.'`,
+                    `'.$CONT20.'`,
+                    `'.$CONT40.'`,
+                    `'.$FECHA_COMPROMISO.'`,
+                    `'.$FLETE.'`,
+                    `'.$OBSERVACIONES.'`
                 )" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
                 Detalles
                 </button> </a>
@@ -236,7 +266,7 @@ add_shortcode('propietario', "mostrar_propietario");
              <tbody>
                <tr>
                  
-                 <td class="celda20 table-success bg-primary">TIPO DE VEHICULO</td>
+                 <td class="celda20 table-success bg-info">TIPO DE VEHICULO</td>
                  <td class="celda40" id="TIPO_VEHICULO">H</td>
                  
                </tr>
@@ -249,7 +279,7 @@ add_shortcode('propietario', "mostrar_propietario");
              <tbody>
                <tr>
                  
-                 <td class="celda20 table-success">TIPO DE CARROCERIA</td>
+                 <td class="celda20 table-success bg-info">TIPO DE CARROCERIA</td>
                  <td class="celda40" id="TIPO_CARROCERIA">H</td>
                  
                </tr>
@@ -262,11 +292,11 @@ add_shortcode('propietario', "mostrar_propietario");
                  <tbody>
                      <tr>
                          
-                         <td class="celda40 table-success">DIRECCION DE CARGUE / CONTACTO / No. TELEFONICO</td>
-                         <td class="celda20" id="CONTACTO">Contacto: H</td>
-                         <td class="celda20" id="DIRECCION_CARGUE">Direccion: H</td>
-                         <td class="celda20" id="TELEFONICO">Tel/Cel: H</td>
-                         
+                         <td class="celda40 table-success bg-info">DIRECCION DE CARGUE / CONTACTO / No. TELEFONICO</td>
+                         <td class="celda20"  > <b> Contactos:</b><p id="CONTACTO"></p> </td>
+                         <td class="celda20"><b> Direccion: </b><p id="DIRECCION_CARGUE"></p> </td>
+                         <td class="celda20" ><b> Tel/Cel: </b><p id="TELEFONICO"></p> </td>
+                       
                      </tr>
                  
                  </tbody>
@@ -278,8 +308,8 @@ add_shortcode('propietario', "mostrar_propietario");
                  <tbody>
                      <tr>
                          
-                         <td class="celda30 table-success">COMPROMISO DE CARGUE</td>
-                         <td class="celda20" id="">Fecha: H</td>
+                         <td class="celda30 table-success bg-info">COMPROMISO DE CARGUE</td>
+                         <td class="celda20" id=""> <b> Fecha:</b><p id="COMPROMISO_CARGUE"></p></td>
         
                          
                          
@@ -294,12 +324,10 @@ add_shortcode('propietario', "mostrar_propietario");
                  <tbody>
                      <tr>
                          
-                         <td class="celda20 table-success">TIPO DE CARGA</td>
-                         <td class="celda20" id="">General: H</td>
-                         <td class="celda20" id="">Granel: H</td>
-                         <td class="celda20" id="">H</td>
-                         
-                         
+                         <td class="celda20 table-success bg-info">TIPO DE CARGA</td>
+                         <td class="celda20" ><b> General:</b><p id="TIPO_CARGA_GENERAL"></p></td>
+                         <td class="celda20" ><b> Granel:</b><p id="TIPO_CARGA_GRANEL"></p></td>
+                        
                      </tr>
                  
                  </tbody>
@@ -312,27 +340,10 @@ add_shortcode('propietario', "mostrar_propietario");
                  <tbody>
                      <tr>
                          
-                         <td class="celda40 table-success">CARGUE Y  DESCARGUE POR CUENTA DEL CLIENTE Y/O TRANSPORTADORA</td>
-                         <td class="celda20" id="TIPO_VEHICULO">Cliente: H</td>
-                         <td class="celda20" id="TIPO_VEHICULO">Transportadora: H</td>
+                         <td class="celda40 table-success bg-info">CARGUE Y  DESCARGUE POR CUENTA DEL CLIENTE Y/O TRANSPORTADORA</td>
+                         <td class="celda20" id="TIPO_VEHICULO"><b> Cliente:</b><p id="CARGUE_DESCARGUE_CLIENTE"></p></td>
+                         <td class="celda20" id="TIPO_VEHICULO"><b> Transportadora:</b><p id="CARGUE_DESCARGUE_TRANSPORTADORA"></p></td>
                          
-                         
-                         
-                     </tr>
-                 
-                 </tbody>
-                 
-             </table>
-     
-             <table class=" table table-bordered border-dark table-hover">
-             
-                 <tbody>
-                     <tr>
-                         
-                         <td class="celda20 table-success">DIMENSIONES CARGA</td>
-                         <td class="celda20" id="TIPO_VEHICULO">Cant: H</td>
-                         <td class="celda20" id="TIPO_VEHICULO">Peso: H</td>
-                         <td class="celda20" id="TIPO_VEHICULO">Volumen: H</td>
                          
                          
                      </tr>
@@ -346,10 +357,10 @@ add_shortcode('propietario', "mostrar_propietario");
                  <tbody>
                      <tr>
                          
-                         <td class="celda30 table-success">CONT.20 - CARGA SUELTA</td>
-                         <td class="celda20" id="TIPO_VEHICULO">Carga suelta: H</td>
-                         <td class="celda20" id="TIPO_VEHICULO">CONT. 20: H</td>
-                         <td class="celda20" id="TIPO_VEHICULO">CONT. 40: H</td>
+                         <td class="celda20 table-success bg-info">DIMENSIONES CARGA</td>
+                         <td class="celda20" ><b> Cant:</b><p id="CANTIDAD"></p></td>
+                         <td class="celda20"><b> Peso:</b><p id="PESO"></p></td>
+                         <td class="celda20" ><b> Volumen:</b><p id="VOLUMEN"></p></td>
                          
                          
                      </tr>
@@ -363,8 +374,25 @@ add_shortcode('propietario', "mostrar_propietario");
                  <tbody>
                      <tr>
                          
-                         <td class="celda30 table-success">COMPROMISO DE ENTREGA EN DESTINO</td>
-                         <td class="celda20" id="FECHA">Fecha: H</td>
+                         <td class="celda30 table-success bg-info">CONT.20 - CARGA SUELTA</td>
+                         <td class="celda20"><b> Carga Suelta:</b><p id="CARGA_SUELTA"></p></td>
+                         <td class="celda20" > <b> CONT. 20:</b><p id="CONT20"></p></td>
+                         <td class="celda20" > <b>CONT. 40:</b><p id="CONT40"></p></td>
+                         
+                         
+                     </tr>
+                 
+                 </tbody>
+                 
+             </table>
+     
+             <table class=" table table-bordered border-dark table-hover">
+             
+                 <tbody>
+                     <tr>
+                         
+                         <td class="celda30 table-success bg-info">COMPROMISO DE ENTREGA EN DESTINO</td>
+                         <td class="celda20"><b>Fecha:</b><p id="FECHA_COMPROMISO"></p></td>
                       
                         
                          
@@ -379,7 +407,7 @@ add_shortcode('propietario', "mostrar_propietario");
                  <tbody>
                      <tr>
                          
-                         <td class="celda10 table-success">FLETE</td>
+                         <td class="celda10 table-success bg-info">FLETE</td>
                          <td class="celda40" id="FLETE">H</td>
                          
                      </tr>
@@ -393,7 +421,7 @@ add_shortcode('propietario', "mostrar_propietario");
                  <tbody>
                      <tr>
                          
-                         <td class="celda20 table-success">OBSERVACIONES A TENER EN CUENTA</td>
+                         <td class="celda20 table-success bg-info">OBSERVACIONES A TENER EN CUENTA</td>
                          <td class="celda40" id="OBSERVACIONES">H</td>
                          
                      </tr>
@@ -407,8 +435,8 @@ add_shortcode('propietario', "mostrar_propietario");
      </div>
          </div>
          <div class="modal-footer">
-           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-           <button type="button" class="btn btn-primary">Save changes</button>
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          
          </div>
        </div>
      </div>
