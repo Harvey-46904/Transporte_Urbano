@@ -63,6 +63,13 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
     <h1 class="wp-heading-inline">Gestor  Vacantes Transportadores</h1>
     <a class="page-title-action" id="modal_new">Nueva Vacante</a>
     <br><br>
+    <script>
+
+      function guardar_id(id){
+        id_guardado=id;
+      }
+ 
+    </script>
     <table class="wp-list-table widefat fixed striped pages">
         <thead>
             <th>Id Vacante</th>
@@ -87,7 +94,7 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
                 <td><?php echo $carroceria; ?></td>
                 <td><?php echo $fecha; ?></td>
                
-                <td class="text-center"><button class="btn btn-danger">Eliminar</button></td>
+                <td class="text-center "><button class="btn btn-danger eliminar" id="<?php echo $id?>" onclick="guardar_id(<?php echo $id?>)" >Eliminar</button></td>
             </tr>
             <?php  } ?>
         </tbody>
