@@ -96,7 +96,7 @@ add_shortcode('propietario', "mostrar_propietario");
  function mostrar_propietario() {
     global $wpdb;
 
-    $sql="SELECT * FROM `wp_vacante_transporte_urbano` ORDER BY `Vacante_id` ASC";
+    $sql="SELECT * FROM `wp_vacante_transporte_urbano` ORDER BY `Vacante_id` DESC";
     $listas= $wpdb->get_results($sql,ARRAY_A);
      if(empty($listas))$listas=array();
     
@@ -206,7 +206,7 @@ add_shortcode('propietario', "mostrar_propietario");
          echo '<div class="col-md-4 ">';
                 echo '<div class="card" style="width: 18rem;">
                 <div class="card-body">
-                <h5 class="card-title">Nueva Vacante</h5>
+                <h5 class="card-title">Nuevo Requerimiento</h5>
                 <h6 class="card-subtitle mb-2 text-muted">'.$value["FECHA_COMPROMISO"].'</h6>
                 <p class="card-text">'.$value["DIRECCION_CARGUE"].'</p>
                 <a href="#" class="card-link"><button type="button" onclick="saludar(
