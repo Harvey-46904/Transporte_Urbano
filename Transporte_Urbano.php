@@ -99,8 +99,9 @@ add_shortcode('propietario', "mostrar_propietario");
     $sql="SELECT * FROM `wp_vacante_transporte_urbano`";
     $listas= $wpdb->get_results($sql,ARRAY_A);
      if(empty($listas))$listas=array();
-     /*
+    
      echo '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">';
+      /*
      echo '<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>';
      echo '<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>';
      echo '<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>';
