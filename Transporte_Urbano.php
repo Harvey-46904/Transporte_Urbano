@@ -96,7 +96,7 @@ add_shortcode('propietario', "mostrar_propietario");
  function mostrar_propietario() {
     global $wpdb;
 
-    $sql="SELECT * FROM `wp_vacante_transporte_urbano`";
+    $sql="SELECT * FROM `wp_vacante_transporte_urbano` ORDER BY `Vacante_id` ASC";
     $listas= $wpdb->get_results($sql,ARRAY_A);
      if(empty($listas))$listas=array();
     
