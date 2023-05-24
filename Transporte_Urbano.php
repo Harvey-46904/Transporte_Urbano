@@ -148,26 +148,26 @@ add_shortcode('propietario', "mostrar_propietario");
         FLETE,
         OBSERVACIONES){
 
-            $("#TIPO_VEHICULO").text( TIPO_VEHICULO);
-            $("#TIPO_CARROCERIA").text(TIPO_CARROCERIA);
-            $("#MODELO_VEHICULO").text(MODELO_VEHICULO);
-            $("#DIRECCION_CARGUE").text(DIRECCION_CARGUE);
-            $("#CONTACTO").text(CONTACTO);
-            $("#TELEFONICO").text(TELEFONICO);
-            $("#COMPROMISO_CARGUE").text(COMPROMISO_CARGUE);
-            $("#TIPO_CARGA_GENERAL").text(TIPO_CARGA_GENERAL);
-            $("#TIPO_CARGA_GRANEL").text(TIPO_CARGA_GRANEL);
-            $("#CARGUE_DESCARGUE_CLIENTE").text(CARGUE_DESCARGUE_CLIENTE);
-            $("#CARGUE_DESCARGUE_TRANSPORTADORA").text(CARGUE_DESCARGUE_TRANSPORTADORA);
-            $("#CANTIDAD").text(CANTIDAD);
-            $("#PESO").text(PESO);
-            $("#VOLUMEN").text(VOLUMEN);
-            $("#CARGA_SUELTA").text(CARGA_SUELTA);
-            $("#CONT20").text(CONT20);
-            $("#CONT40").text(CONT40);
-            $("#FECHA_COMPROMISO").text(FECHA_COMPROMISO);
-            $("#FLETE").text(FLETE);
-            $("#OBSERVACIONES").text(OBSERVACIONES);
+            jQuery("#TIPO_VEHICULO").text( TIPO_VEHICULO);
+            jQuery("#TIPO_CARROCERIA").text(TIPO_CARROCERIA);
+            jQuery("#MODELO_VEHICULO").text(MODELO_VEHICULO);
+            jQuery("#DIRECCION_CARGUE").text(DIRECCION_CARGUE);
+            jQuery("#CONTACTO").text(CONTACTO);
+            jQuery("#TELEFONICO").text(TELEFONICO);
+            jQuery("#COMPROMISO_CARGUE").text(COMPROMISO_CARGUE);
+            jQuery("#TIPO_CARGA_GENERAL").text(TIPO_CARGA_GENERAL);
+            jQuery("#TIPO_CARGA_GRANEL").text(TIPO_CARGA_GRANEL);
+            jQuery("#CARGUE_DESCARGUE_CLIENTE").text(CARGUE_DESCARGUE_CLIENTE);
+            jQuery("#CARGUE_DESCARGUE_TRANSPORTADORA").text(CARGUE_DESCARGUE_TRANSPORTADORA);
+            jQuery("#CANTIDAD").text(CANTIDAD);
+            jQuery("#PESO").text(PESO);
+            jQuery("#VOLUMEN").text(VOLUMEN);
+            jQuery("#CARGA_SUELTA").text(CARGA_SUELTA);
+            jQuery("#CONT20").text(CONT20);
+            jQuery("#CONT40").text(CONT40);
+            jQuery("#FECHA_COMPROMISO").text(FECHA_COMPROMISO);
+            jQuery("#FLETE").text(FLETE);
+            jQuery("#OBSERVACIONES").text(OBSERVACIONES);
      }
     </script>
    ' ;
