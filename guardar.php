@@ -2,7 +2,7 @@
  require_once "../../../wp-load.php";
     global $wpdb;
 
-    $tabla ="wp_vacante_transporte_urbano";
+    $tabla ="wp_Vacante_Transporte_Urbano";
  
    if (isset($_POST['variable_js'])) {
 
