@@ -10,10 +10,12 @@ function Activar(){
 
     $sql="CREATE TABLE IF NOT EXISTS {$wpdb->prefix}Vacante_Transporte_Urbano(
         Vacante_id INT NOT NULL AUTO_INCREMENT,
+        UIDVACANTE VARCHAR(45) NULL,
         TIPO_VEHICULO VARCHAR(45) NULL,
         TIPO_CARROCERIA VARCHAR(45) NULL,
         MODELO_VEHICULO VARCHAR(45) NULL,
         DIRECCION_CARGUE VARCHAR(45) NULL,
+        DESTINO VARCHAR(45) NULL,
         CONTACTO VARCHAR(45) NULL,
         TELEFONICO VARCHAR(45) NULL,
         COMPROMISO_CARGUE VARCHAR(45) NULL,
@@ -52,14 +54,20 @@ register_deactivation_hook(__FILE__,'Desactivar');
 add_action("admin_menu","CrearMenu");
 
 function CrearMenu(){
-    add_menu_page(
-        "Trasnportes Urbanas",
-        "Trasnportes Urbanos",
-        "manage_options",
-        plugin_dir_path(__FILE__)."Admin/listas.php",
-        null,
-        plugin_dir_url(__FILE__).'Admin/Img/car.png',
-        1);
+
+
+        add_menu_page(
+            "Trasnportes Urbanas",
+            "Trasnportes Urbanos",
+            "manage_options",
+            plugin_dir_path(__FILE__)."Admin/listas.php",
+            null,
+            plugin_dir_url(__FILE__).'Admin/Img/car.png',
+            1);
+    
+/*
+    
+*/
 }
 
 function CrearContenido(){
@@ -205,10 +213,13 @@ add_shortcode('propietario', "mostrar_propietario");
         $OBSERVACIONES=$value["OBSERVACIONES"];
          echo '<div class="col-md-4 ">';
                 echo '<div class="card" style="width: 18rem;">
-                <div class="card-body">
-                <h5 class="card-title">Nuevo Requerimiento</h5>
-                <h6 class="card-subtitle mb-2 text-muted">'.$value["FECHA_COMPROMISO"].'</h6>
-                <p class="card-text">'.$value["DIRECCION_CARGUE"].'</p>
+                <div class="card-body ">
+                <h5 class="card-title">ID VACANTE: '.$value["UIDVACANTE"].'</h5>
+                <h6 class="card-subtitle mb-2 text-muted">'.$value["TIPO_VEHICULO"].'</h6>
+                <h6 class="card-subtitle mb-2 text-muted">'.$value["TIPO_CARROCERIA"].'</h6>
+                <h6 class="card-subtitle mb-2 text-muted"><b>Origen: </b>'.$value["DIRECCION_CARGUE"].'</h6>
+                <h6 class="card-subtitle mb-2 text-muted"><b>Destino: </b>'.$value["DESTINO"].'</h6>
+                <p class="card-text">'.$value["OBSERVACIONES"].'</p>
                 <a href="#" class="card-link"><button type="button" onclick="saludar(
                     `'.$TIPO_VEHICULO.'`,
                     `'.$TIPO_CARROCERIA.'`,

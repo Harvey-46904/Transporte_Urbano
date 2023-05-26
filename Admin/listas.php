@@ -6,11 +6,12 @@ $tabla ="wp_vacante_transporte_urbano";
 
 
 if($_SERVER["REQUEST_METHOD"] =="POST"){
-
+  $UIDVACANTE=$_POST["Uid_vacante"];
   $TIPO_VEHICULO= $_POST["TIPO_VEHICULO"];
   $TIPO_CARROCERIA= $_POST["TIPO_CARROCERIA"];
   $MODELO_VEHICULO= $_POST["MODELO_VEHICULO"];
   $DIRECCION_CARGUE= $_POST["DIRECCION_CARGUE"];
+  $DESTINO=$_POST["DESTINO"];
   $CONTACTO= $_POST["CONTACTO"];
   $TELEFONICO= $_POST["TELEFONICO"];
   $COMPROMISO_CARGUE= $_POST["COMPROMISO_CARGUE"];
@@ -28,10 +29,12 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
   $FLETE= $_POST["FLETE"];
   $OBSERVACIONES= $_POST["OBSERVACIONES"];
   $datos=[
+    'UIDVACANTE' =>$UIDVACANTE,
     'TIPO_VEHICULO' => $TIPO_VEHICULO ,
     'TIPO_CARROCERIA' => $TIPO_CARROCERIA,
     'MODELO_VEHICULO' => $MODELO_VEHICULO,
     'DIRECCION_CARGUE' => $DIRECCION_CARGUE,
+    'DESTINO'=>$DESTINO,
     'CONTACTO' => $CONTACTO,
     'TELEFONICO' => $TELEFONICO,
     'COMPROMISO_CARGUE' => $COMPROMISO_CARGUE,
@@ -82,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
         <tbody id="the-list">
             <?php
             foreach($listas as $key => $value){
-                $id=$value["Vacante_id"];
+                $id=$value["UIDVACANTE"];
                 $vehiculo=$value["TIPO_VEHICULO"];
                 $carroceria=$value["TIPO_CARROCERIA"];
                 $fecha=$value["FECHA_COMPROMISO"];
@@ -112,6 +115,10 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
       </div>
       <div class="modal-body">
       <form method="POST" >
+      <div class="form-group">
+            <label for="exampleFormControlInput1">ID vacante</label>
+            <input type="text" class="form-control"  placeholder="Id vacante" name="Uid_vacante" >
+          </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Tipo de Vehículo</label>
             <select class="form-control" id="exampleFormControlSelect1" name="TIPO_VEHICULO">
@@ -146,9 +153,13 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
             <input type="text" class="form-control"  placeholder="Módelo de Vehículo" name="MODELO_VEHICULO" >
           </div>
           <div class="form-group">
-            <label for="exampleFormControlInput1">Dirección de Cargue</label>
-            <input type="text" class="form-control"  placeholder="Dirección de cargue" name="DIRECCION_CARGUE" >
+            <label for="exampleFormControlInput1">Origen</label>
+            <input type="text" class="form-control"  placeholder="Origen" name="DIRECCION_CARGUE" >
           </div>   
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Destino</label>
+            <input type="text" class="form-control"  placeholder="Destino" name="DESTINO" >
+          </div>  
           <div class="form-group">
             <label for="exampleFormControlInput1">Contacto</label>
             <input type="text" class="form-control"  placeholder="Contacto" name="CONTACTO" >
