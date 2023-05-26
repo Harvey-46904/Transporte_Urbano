@@ -85,14 +85,15 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
         <tbody id="the-list">
             <?php
             foreach($listas as $key => $value){
-                $id=$value["UIDVACANTE"];
+                $id=$value["Vacante_id"];
                 $vehiculo=$value["TIPO_VEHICULO"];
                 $carroceria=$value["TIPO_CARROCERIA"];
                 $fecha=$value["FECHA_COMPROMISO"];
+                $uid=$value["UIDVACANTE"];
                
             ?>
             <tr>
-                <td><?php echo $id; ?></td>
+                <td><?php echo $uid; ?></td>
                 <td><?php echo $vehiculo; ?></td>
                 <td><?php echo $carroceria; ?></td>
                 <td><?php echo $fecha; ?></td>
