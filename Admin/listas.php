@@ -1,7 +1,7 @@
 <?php
  global $wpdb;
 
-$tabla ="wp_vacante_transporte_urbano";
+$tabla ="wp_Vacante_Transporte_Urbano";
 
 
 
@@ -58,7 +58,7 @@ if($_SERVER["REQUEST_METHOD"] =="POST"){
     echo "Datos Guardados Correctamente";
  }
 
- $sql="SELECT * FROM `wp_vacante_transporte_urbano`";
+ $sql="SELECT * FROM `wp_Vacante_Transporte_Urbano`";
  $listas= $wpdb->get_results($sql,ARRAY_A);
   if(empty($listas))$listas=array();
 ?>
